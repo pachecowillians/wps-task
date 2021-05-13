@@ -4,3 +4,12 @@
   - To add a new task you just need to click on the "Add" button, and fill the fields. 
   - To set a task as finished, just double click on it.
   - To remove the task of the list, just click the "x" button in the top-right place of the task.
+
+---
+
+  Tools used
+
+  - ReactJS
+  - Javascript
+  - HTML
+  - CSS
