@@ -1,0 +1,76 @@
+.modalContainer {
+    background: rgba(210, 215, 211, 0.5);
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalBody {
+    background: white;
+    border-radius: 1rem;
+    width: 55vw;
+    height: 40vh;
+    position: relative;
+    top: 0rem;
+    left: 0rem;
+}
+
+.modalHeader {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.modalHeader button {
+    border: 1px solid #ff5555;
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #ff5555;
+    transition: background 0.2s, color 0.2s;
+}
+
+.modalHeader button:hover {
+    color: #fff;
+    background: #ff5555;
+}
+
+.modalMain input {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #6272a4;
+    margin: 2rem 2rem;
+    width: 30rem;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+}
+
+.modalMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0rem;
+}
+
+.modalMain button {
+    border: 1px solid #6272a4;
+    padding: 0.25rem 2rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #6272a4;
+    transition: background 0.2s, color 0.2s;
+}
+
+.modalMain button:hover {
+    color: #fff;
+    background: #6272a4;
+}

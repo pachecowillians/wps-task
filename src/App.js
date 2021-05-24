@@ -1,62 +1,56 @@
 import { useEffect, useState } from 'react'
-import Header from './components/Header'
-import Tasks from './components/Tasks'
-import AddTask from './components/AddTask'
+import Header from './components/Header/Header'
+import AddTask from './components/AddTask/AddTask'
+import ListTasks from './components/ListTasks/ListTasks'
+import EditTask from './components/EditTask/EditTask'
+import styles from './style.module.css'
 
 function App() {
 
-  const [showAddTasks, setShowAddTasks] = useState(false)
+    const [taskEdited, setTaskEdited] = useState({});
+    const [countTasks, setCountTasks] = useState(0);
+    const [tasks, setTasks] = useState([]);
 
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: 'Wake up',
-      day: 'Feb 5th at 2:30pm',
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: 'Do my homework',
-      day: 'Feb 6th at 1:30pm',
-      reminder: true,
-    },
-    {
-      id: 3,
-      text: 'Take some rest',
-      day: 'Feb 2th at 2:00pm',
-      reminder: false,
+    const deleteTask = (id) => {
+        setTasks(tasks.filter((task) => task.id !== id))
     }
-  ])
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id))
-  }
+    const addTask = (text) => {
+        setCountTasks(countTasks + 1);
 
-  const toggleReminder = (id) => {
-    setTasks(tasks.map((task) =>
-      task.id === id ?
-        {
-          ...task,
-          reminder: !task.reminder
-        } :
-        task))
-  }
+        const newTask = {
+            id: countTasks,
+            text
+        }
 
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = {id, ...task}
-    setTasks([...tasks, newTask])
-  }
+        setTasks([newTask, ...tasks])
+    }
 
-  return (
-    <div className="container">
-      <Header onAdd={()=>{setShowAddTasks(!showAddTasks)}} showAdd={showAddTasks}/>
-      {showAddTasks && <AddTask onAdd={addTask} />}
-      {tasks.length > 0 ?
-        (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />) :
-        (<h3 style={{ marginTop: '50px' }}>No tasks to show</h3>)}
-    </div>
-  )
+    const editTask = (task) => {
+        var item = tasks.find(taskSearched => taskSearched.id == task.id);
+        if (item) {
+            item.text = task.text;
+        }
+    }
+
+    const renderTaskEdit = () => {
+        if (Object.keys(taskEdited).length === 0 && taskEdited.constructor === Object) {
+            return;
+        } else {
+            return <EditTask editTask={editTask} stateTaskEdited={[taskEdited, setTaskEdited]} />;
+        }
+    }
+
+    return (
+        <div>
+            <Header />
+            {renderTaskEdit()}
+            <div className={styles.taskContainer}>
+                <AddTask addTask={addTask} />
+                <ListTasks tasks={tasks} doTask={deleteTask} setTaskEdited={setTaskEdited} />
+            </div>
+        </div>
+    )
 }
 
 export default App;

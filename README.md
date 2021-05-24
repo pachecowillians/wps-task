@@ -10,6 +10,9 @@
   Tools used
 
   - ReactJS
+    - useState
+    - Components
   - Javascript
+  - JSX
   - HTML
   - CSS
