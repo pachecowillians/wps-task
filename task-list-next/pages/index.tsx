@@ -39,14 +39,6 @@ export default function Home() {
         }
     }
 
-    const renderTaskEdit = () => {
-        if (Object.keys(taskEdited).length === 0 && taskEdited.constructor === Object) {
-            return;
-        } else {
-            return <EditTask editTask={editTask} taskEdited={taskEdited} setTaskEdited={setTaskEdited} />;
-        }
-    }
-
     return (
         <div>
             <Head>
@@ -58,10 +50,24 @@ export default function Home() {
 
             <Header />
             <main>
-                {renderTaskEdit()}
+                {
+                    (Object.keys(taskEdited).length === 0 && taskEdited.constructor === Object) || (
+                        <EditTask
+                            editTask={editTask}
+                            taskEdited={taskEdited}
+                            setTaskEdited={setTaskEdited}
+                        />
+                    )
+
+
+                }
                 <div className={styles.taskContainer}>
                     <AddTask addTask={addTask} />
-                    <ListTasks tasks={tasks} doTask={deleteTask} setTaskEdited={setTaskEdited} />
+                    <ListTasks
+                        tasks={tasks}
+                        doTask={deleteTask}
+                        setTaskEdited={setTaskEdited}
+                    />
                 </div>
             </main>
         </div>

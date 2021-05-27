@@ -16,11 +16,12 @@ const ListTasks = ({ tasks, doTask, setTaskEdited }: Props) => {
     return (
         <div className={styles.tasks}>
             {
-                tasks.map(
-                    (task) => (
-                        <Task key={task.id} task={task} doTask={doTask} setTaskEdited={setTaskEdited} />
-                    )
-                )
+                (tasks.length > 0) ?
+                    tasks.map(
+                        (task) => (
+                            <Task key={task.id} task={task} doTask={doTask} setTaskEdited={setTaskEdited} />
+                        )
+                    ) : <div>No tasks for now!</div>
             }
         </div>
     )
