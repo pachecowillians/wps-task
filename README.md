@@ -12,6 +12,8 @@
   - ReactJS
     - useState
     - Components
+    - Styled components
+    - CSS modules
   - Javascript
   - Typescript
   - JSX

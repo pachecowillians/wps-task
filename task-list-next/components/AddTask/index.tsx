@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from './styles.module.css';
+import { Container } from "./style";
 
 type Props = {
     addTask: (taskText: string) => void;
@@ -30,9 +30,8 @@ const AddTask = ({ addTask }: Props) => {
     }
 
     return (
-        <div className={styles.addArea}>
+        <Container>
             <input
-                className={styles.inputAddTask}
                 id="addTaskText"
                 type="text"
                 placeholder="Type your task here"
@@ -40,8 +39,8 @@ const AddTask = ({ addTask }: Props) => {
                 value={taskText}
                 onKeyPress={handleKeyPress}
             />
-            <button className={styles.buttonAddTask} type="button" onClick={createTask}>+</button>
-        </div>
+            <button type="button" onClick={createTask}>+</button>
+        </Container>
     )
 }
 

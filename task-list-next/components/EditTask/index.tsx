@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import { Background, Body, Container, Header } from './style';
 
 type Task = {
     id: number;
@@ -37,17 +37,23 @@ const EditTask = ({ editTask, taskEdited, setTaskEdited }: Props) => {
     }
 
     return (
-        <div className={styles.modalContainer}>
-            <div className={styles.modalBody} >
-                <div className={styles.modalHeader} >
+        <Background>
+            <Container>
+                <Header>
                     <button type="button" onClick={closeDialog}>&#215;</button>
-                </div>
-                <div className={styles.modalMain} >
-                    <input type='text' placeholder="Type your task here" onChange={handleOnChange} onKeyPress={handleKeyPress} value={taskEdited.text} />
+                </Header>
+                <Body>
+                    <input
+                        type='text'
+                        placeholder="Type your task here"
+                        onChange={handleOnChange}
+                        onKeyPress={handleKeyPress}
+                        value={taskEdited.text}
+                    />
                     <button type="button" onClick={updateTask}>&#10003;</button>
-                </div>
-            </div>
-        </div>
+                </Body>
+            </Container>
+        </Background>
     )
 }
 

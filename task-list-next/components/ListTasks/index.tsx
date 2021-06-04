@@ -1,5 +1,5 @@
-import Task from '../Task/Task';
-import styles from './styles.module.css';
+import Task from '../Task';
+import { TaskList } from './style';
 
 type TypeTask = {
     id: number;
@@ -14,16 +14,21 @@ type Props = {
 
 const ListTasks = ({ tasks, doTask, setTaskEdited }: Props) => {
     return (
-        <div className={styles.tasks}>
+        <TaskList>
             {
                 (tasks.length > 0) ?
                     tasks.map(
                         (task) => (
-                            <Task key={task.id} task={task} doTask={doTask} setTaskEdited={setTaskEdited} />
+                            <Task
+                                key={task.id}
+                                task={task}
+                                doTask={doTask}
+                                setTaskEdited={setTaskEdited}
+                            />
                         )
-                    ) : <div>No tasks for now!</div>
+                    ) : (<div>No tasks for now!</div>)
             }
-        </div>
+        </TaskList>
     )
 }
 

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { useState } from 'react';
-import AddTask from '../components/AddTask/AddTask'
-import EditTask from '../components/EditTask/EditTask';
-import Header from '../components/Header/Header'
-import ListTasks from '../components/ListTasks/ListTasks';
+import AddTask from '../components/AddTask'
+import EditTask from '../components/EditTask';
+import Header from '../components/Header'
+import ListTasks from '../components/ListTasks';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
